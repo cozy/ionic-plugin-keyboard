@@ -63,7 +63,7 @@ public class IonicKeyboard extends CordovaPlugin {
                     DisplayMetrics dm = new DisplayMetrics();
                     WindowManager manager = cordova.getActivity().getWindowManager();
                     if (manager == null) {
-                        return false;
+                        return;
                     }
                     cordova.getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
                     final float density = dm.density;
