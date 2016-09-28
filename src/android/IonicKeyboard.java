@@ -15,6 +15,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.inputmethod.InputMethodManager;
+import android.view.WindowManager;
 
 // import additionally required classes for calculating screen height
 import android.view.Display;
@@ -60,6 +61,10 @@ public class IonicKeyboard extends CordovaPlugin {
                 	//calculate density-independent pixels (dp)
                     //http://developer.android.com/guide/practices/screens_support.html
                     DisplayMetrics dm = new DisplayMetrics();
+                    WindowManager manager = cordova.getActivity().getWindowManager();
+                    if (manager == null) {
+                        return false;
+                    }
                     cordova.getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
                     final float density = dm.density;
 
